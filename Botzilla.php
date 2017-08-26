@@ -1,16 +1,18 @@
 <?php
 //print_r($_GET['hub_challenge']);
+echo "entro";
 $access_token = "EAAFkhkvdAfQBAK7F43v0truWer91RARmL3czsd8emZB7ykJtyBpiWKbvtfMAlLu4blwZC9eddEHfRnf1XkxyOfQkmPZBveyzRQf1vJDhPP8ZCE0xSONetVjMyKllVnAEu1tgV9JwrMUZAxumsnWlhPUUqlUccs2Yk291Ow9mgUgZDZD";
 $verify_token = "btoken";
 $hub_verify_token = null;
-if(isset($_REQUEST['hub_challenge'])) {
-    $challenge = $_REQUEST['hub_challenge'];
-    $hub_verify_token = $_REQUEST['hub_verify_token'];
+if(isset($_GET['hub_challenge'])) {
+    $challenge = $_GET['hub_challenge'];
+    $hub_verify_token = $_GET['hub_verify_token'];
 }
 if ($hub_verify_token === $verify_token) {
     echo $challenge;
 }
 $input = json_decode(file_get_contents('php://input'), true);
+echo $input;
 $sender = $input['entry'][0]['messaging'][0]['sender']['id'];
 $message = $input['entry'][0]['messaging'][0]['message']['text'];
 $message_to_reply = 'perritas';
@@ -53,6 +55,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 if(!empty($input['entry'][0]['messaging'][0]['message'])){
     $result = curl_exec($ch);
 }
+echo "salio";
 // $input = json_decode(file_get_contents('php://input'), true);
 // file_put_contents('fb_response.txt', file_get_contents("php://input") . PHP_EOL, FILE_APPEND);
 
