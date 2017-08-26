@@ -44,5 +44,17 @@ else:
     response = conversation.message(workspace_id=workspace_id, message_input={
         'text': sys.argv[2]}, context=context)
 
+db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+                     user="Jolum",         # your username
+                     passwd="FilantropiaDB1234",  # your password
+                     db="Botzilla")        # name of the data base
+
+# you must create a Cursor object. It will let
+#  you execute all the queries you need
+cur = db.cursor()
+
+# Use all the SQL you like
+cur.execute("CALL SP_UpdateContext(" + sys.argv[1] + ", " + response['context'] + ");")
+db.close()
 
 print(json.dumps(response['output']['text'][0]))
