@@ -35,8 +35,7 @@ conversation = ConversationV1(
         password='5FDnK2H87H5d',
         version='2017-04-21')
 
-        # replace with your own workspace_id
-    workspace_id = '6438675d-c6bf-4e9f-8222-ddc0ed1a4a65'
+workspace_id = '6438675d-c6bf-4e9f-8222-ddc0ed1a4a65'
 
 if context == -1:
     response = conversation.message(workspace_id=workspace_id, message_input={
