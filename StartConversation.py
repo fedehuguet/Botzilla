@@ -11,7 +11,7 @@ db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.co
 cur = db.cursor()
 
 # Use all the SQL you like
-cur.execute("CALL SP_GetContext(9);")
+cur.execute("CALL SP_AddConversation();")
 
 # print all the first cell of all the rows
 for row in cur.fetchall():
