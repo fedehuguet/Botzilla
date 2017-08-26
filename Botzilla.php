@@ -1,14 +1,14 @@
 <?php
-echo "whatsup bitches2";
+echo "whatsup bitches3";
 $access_token = "EAADhEjnSxg8BAB7pchOnUF2UW0yeFkwQ9UIw0rwMyDDiIZAZArzPiPZB4xXgTsWi3eCZBafYvEe8EfhXMlxZA4OCSnZBK4G4X7J0bs24gM0kmGLo0xQabOAMl5ixZBpwwymTpKWNDYeVLE5UZAqfYAHYVaJmMgJiIi9kXhibZCegafQZDZD";
 $verify_token = "botToken";
 $hub_verify_token = null;
-if(isset($_REQUEST['hub_challenge'])) {
-    $challenge = $_REQUEST['hub_challenge'];
-    $hub_verify_token = $_REQUEST['hub_verify_token'];
+if(isset($_GET['hub_challenge'])) {
+    $challenge = $_GET['hub_challenge'];
+    $hub_verify_token = $_GET'hub_verify_token'];
 }
 if ($hub_verify_token === $verify_token) {
-    echo $challenge;
+    print_r($challenge);
 }
 $fb = file_get_contents('php://input');
 echo $fb;
