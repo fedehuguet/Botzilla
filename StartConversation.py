@@ -1,10 +1,10 @@
 #!/usr/bin/python
 import MySQLdb
 
-db = MySQLdb.connect(host="13.58.25.89",    # your host, usually localhost
+db = MySQLdb.connect(host="localhost",    # your host, usually localhost
                      user="root",         # your username
                      passwd="",  # your password
-                     db="RFDBV1")        # name of the data base
+                     db="Botzilla")        # name of the data base
 
 # you must create a Cursor object. It will let
 #  you execute all the queries you need
