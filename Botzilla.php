@@ -1,6 +1,6 @@
 <?php
 print_r($_GET['hub_challenge']);
-echo "entro";
+echo "entro2";
 $access_token = "EAAFkhkvdAfQBAK7F43v0truWer91RARmL3czsd8emZB7ykJtyBpiWKbvtfMAlLu4blwZC9eddEHfRnf1XkxyOfQkmPZBveyzRQf1vJDhPP8ZCE0xSONetVjMyKllVnAEu1tgV9JwrMUZAxumsnWlhPUUqlUccs2Yk291Ow9mgUgZDZD";
 $verify_token = "btoken";
 $hub_verify_token = null;
