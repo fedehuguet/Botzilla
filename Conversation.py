@@ -54,7 +54,7 @@ db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.co
 cur = db.cursor()
 
 # Use all the SQL you like
-cur.execute("CALL SP_UpdateContext(" + sys.argv[1] + ", " + json.dumps(response['context']) + ");")
+cur.execute("CALL SP_UpdateContext(" + sys.argv[1] + ", \'" + json.dumps(response['context']) + "\');")
 db.close()
 
 print(json.dumps(response['output']['text'][0]))
