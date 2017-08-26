@@ -42,7 +42,7 @@ if mcontext == "-1":
         'text': sys.argv[2]} )
 else:
     response = conversation.message(workspace_id=workspace_id, message_input={
-        'text': sys.argv[2]}, context=mcontext)
+        'text': sys.argv[2]}, context=json.loads(mcontext))
 
 db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                      user="Jolum",         # your username
