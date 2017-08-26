@@ -11,7 +11,7 @@ $recipientId = $fb->entry[0]->messaging[0]->sender->id;
 
 //exec(,$message, -1);
 
-$token="EAADhEjnSxg8BAPi3bOvFyjEKBed9GpugiEI5nsSojB1jNHJh2KZA1Syti1tXQ1LTBwgVZCIqRZC68byp82SpJ8h0hgCZA0ZAdDh2elHyNhqjdG0gZAPWZBRUIAkeYvpjKUwhpHhbZBOz4Az8sfuD31sZCZAxxhliqr4otp7XmLUUZAPeQZDZD";
+$token="EAADhEjnSxg8BAB7pchOnUF2UW0yeFkwQ9UIw0rwMyDDiIZAZArzPiPZB4xXgTsWi3eCZBafYvEe8EfhXMlxZA4OCSnZBK4G4X7J0bs24gM0kmGLo0xQabOAMl5ixZBpwwymTpKWNDYeVLE5UZAqfYAHYVaJmMgJiIi9kXhibZCegafQZDZD";
 
 $data = array(
 	'recipient' => array('id' =>"$recipientId"),
