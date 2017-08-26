@@ -1,9 +1,9 @@
 #!/usr/bin/python
 import MySQLdb
 
-db = MySQLdb.connect(host="localhost",    # your host, usually localhost
-                     user="root",         # your username
-                     passwd="Jcoco94-",  # your password
+db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+                     user="Jolum",         # your username
+                     passwd="FilantropiaDB1234",  # your password
                      db="Botzilla")        # name of the data base
 
 # you must create a Cursor object. It will let
