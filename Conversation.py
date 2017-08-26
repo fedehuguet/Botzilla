@@ -36,7 +36,7 @@ conversation = ConversationV1(
         version='2017-04-21')
 
 workspace_id = '6438675d-c6bf-4e9f-8222-ddc0ed1a4a65'
-def response
+response = []
 if mcontext == "-1":
     response = conversation.message(workspace_id=workspace_id, message_input={
         'text': sys.argv[2]} )
