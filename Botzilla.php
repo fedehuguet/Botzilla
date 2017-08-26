@@ -1,5 +1,5 @@
 <?php
-//print_r($_GET['hub_challenge']);
+print_r($_GET['hub_challenge']);
 echo "entro";
 $access_token = "EAAFkhkvdAfQBAK7F43v0truWer91RARmL3czsd8emZB7ykJtyBpiWKbvtfMAlLu4blwZC9eddEHfRnf1XkxyOfQkmPZBveyzRQf1vJDhPP8ZCE0xSONetVjMyKllVnAEu1tgV9JwrMUZAxumsnWlhPUUqlUccs2Yk291Ow9mgUgZDZD";
 $verify_token = "btoken";
@@ -7,13 +7,13 @@ $hub_verify_token = null;
 print_r($_GET['hub_challenge']);
 if(isset($_GET['hub_challenge'])) {
     $challenge = $_GET['hub_challenge'];
-    print_r($challenge);
-    print_r(echo $_GET['hub_verify_token']);
+    print_r($_GET['hub_challenge']);
+    print_r($_GET['hub_challenge']);
     $hub_verify_token = $_GET['hub_verify_token'];
-    print_r($hub_verify_token);
+    print_r($_GET['hub_challenge']);
 }
 if ($hub_verify_token === $verify_token) {
-    print_r($challenge);
+    print_r($_GET['hub_challenge']);
 }
 $input = json_decode(file_get_contents('php://input'), true);
 echo $input;
