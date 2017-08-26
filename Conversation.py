@@ -37,7 +37,6 @@ conversation = ConversationV1(
 
 workspace_id = '6438675d-c6bf-4e9f-8222-ddc0ed1a4a65'
 response = []
-print(json.dumps(mcontext))
 if mcontext == "-1":
     response = conversation.message(workspace_id=workspace_id, message_input={
         'text': sys.argv[2]} )
