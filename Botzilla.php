@@ -1,5 +1,6 @@
 <?php
 echo "whatsup bitches2";
+print_r($_GET['hub_challenge'])
 $fb = file_get_contents('php://input');
 echo $fb;
 // $access_token = "EAADhEjnSxg8BAB7pchOnUF2UW0yeFkwQ9UIw0rwMyDDiIZAZArzPiPZB4xXgTsWi3eCZBafYvEe8EfhXMlxZA4OCSnZBK4G4X7J0bs24gM0kmGLo0xQabOAMl5ixZBpwwymTpKWNDYeVLE5UZAqfYAHYVaJmMgJiIi9kXhibZCegafQZDZD";
