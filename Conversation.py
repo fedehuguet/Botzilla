@@ -24,9 +24,9 @@ cur.execute("CALL SP_GetContext(" + sys.argv[1] + ");")
 
 # print all the first cell of all the rows
 
-context = "-1"
+mcontext = "-1"
 for row in cur.fetchall():
-    context = row[0]
+    mcontext = row[0]
 
 db.close()
 
@@ -37,12 +37,12 @@ conversation = ConversationV1(
 
 workspace_id = '6438675d-c6bf-4e9f-8222-ddc0ed1a4a65'
 
-if context == -1:
+if mcontext == "-1":
     response = conversation.message(workspace_id=workspace_id, message_input={
         'text': sys.argv[2]} )
 else:
     response = conversation.message(workspace_id=workspace_id, message_input={
-        'text': sys.argv[2]}, context=context)
+        'text': sys.argv[2]}, context=mcontext)
 
 db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                      user="Jolum",         # your username
