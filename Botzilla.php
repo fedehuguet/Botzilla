@@ -16,6 +16,7 @@ if ($hub_verify_token === $verify_token) {
     print_r($_GET['hub_challenge']);
 }
 $input = json_decode(file_get_contents('php://input'), true);
+file_put_contents("fb.txt", $input);
 echo $input;
 $sender = $input['entry'][0]['messaging'][0]['sender']['id'];
 $message = $input['entry'][0]['messaging'][0]['message']['text'];
