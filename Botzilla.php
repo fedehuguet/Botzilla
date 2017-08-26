@@ -1,17 +1,13 @@
 <?php
 
-if (!empty($_REQUEST['hub_mode']) && $_REQUEST['hub_mode'] == 'subscribe' && $_REQUEST['hub_verify_token'] == "<mytoken>") {
-    echo $_REQUEST['hub_challenge'];
-} else {
-    $data = json_decode(file_get_contents("php://input"), true);
-    file_put_contents('bot_'.time().'.txt', print_r($data, true));
-}
+$input = json_decode(file_get_contents('php://input'), true);
+file_put_contents('fb_response.txt', file_get_contents("php://input") . PHP_EOL, FILE_APPEND);
 
 //print_r($_GET["hub_challenge"]);
 //file_put_contents("fb.txt", file_get_contents("php://input"));
 // print("entro");
 // $fb = file_get_contents("php://input");
-//shell_exec("sudo touch perra.txt")
+shell_exec("sudo touch perra.txt")
 // echo "<pre>";
 // $fb = json_decode($fb);
 // print_r($fb);
