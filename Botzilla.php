@@ -1,27 +1,31 @@
 <?php
 
-file_put_contents("fb.txt", file_get_contents("php://input"));
-$fb = file_get_contents("fb.txt");
+print_r($_GET["hub_challenge"]);
+// file_put_contents("fb.txt", file_get_contents("php://input"));
+// $fb = file_get_contents("fb.txt");
 
-echo "<pre>";
-$fb = json_decode($fb);
-$recipientId = $fb->entry[0]->messaging[0]->sender->id;
+// echo "<pre>";
+// $fb = json_decode($fb);
+// $recipientId = $fb->entry[0]->messaging[0]->sender->id;
+// $message = $fb->entry[0]->messaging[0]->message->text;
 
-$token;
+// exec(,$message, -1);
 
-$data = array(
-	'recipient' => array('id' =>"$recipientId"),
-	'message' => array('text' =>"perritas"),
-	);
+// $token;
 
-$options = $options = array(
-    'http' => array(
-    	'method'  => 'POST',
-    	'content' => json_encode($data),
-        'header'  => "Content-type: application/json\n"
-    )
-);
+// $data = array(
+// 	'recipient' => array('id' =>"$recipientId"),
+// 	'message' => array('text' =>"perritas"),
+// 	);
 
-$context = stream_context_create($options);
+// $options = $options = array(
+//     'http' => array(
+//     	'method'  => 'POST',
+//     	'content' => json_encode($data),
+//         'header'  => "Content-type: application/json\n"
+//     )
+// );
 
-print_r($fb);
+// $context = stream_context_create($options);
+
+// print_r($fb);
