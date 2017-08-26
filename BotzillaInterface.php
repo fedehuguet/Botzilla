@@ -1,8 +1,8 @@
 <?php
 
-if (isset($_POST['start']))
+if (isset($_GET['start']))
 {
-    if ($_POST['start'] == 1)
+    if ($_GET['start'] == 1)
     {
         echo shell_exec("python /var/www/html/reddefilantropia.site/public_html/Botzilla/StartConversation.py");
     }
@@ -12,9 +12,9 @@ if (isset($_POST['start']))
 }
 else
 {
-    if (isset($_POST['id']) &&  isset($_POST['message']) )
+    if (isset($_GET['id']) &&  isset($_GET['message']) )
     {
-        echo shell_exec('python /var/www/html/reddefilantropia.site/public_html/Botzilla/Conversation.py $_POST["id"] $_POST["message"]');
+        echo shell_exec('python /var/www/html/reddefilantropia.site/public_html/Botzilla/Conversation.py $_GET["id"] $_GET["message"]');
     }
     else
     {
