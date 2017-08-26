@@ -20,7 +20,7 @@ db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.co
 cur = db.cursor()
 
 # Use all the SQL you like
-cur.execute("CALL SP_GetContext("+sys.argv[0]+");")
+cur.execute("CALL SP_GetContext(" + sys.argv[0] + ");")
 
 # print all the first cell of all the rows
 
