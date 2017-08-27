@@ -43,7 +43,6 @@ $(document).ready(function () {
         method: "POST",
         data: data,
         success: function (response) {
-            debugger;
             if (response != null) {
             	console.log(response);
              	AmCharts.makeChart( "top5", {
@@ -78,7 +77,6 @@ $(document).ready(function () {
         method: "POST",
         data: data2,
         success: function (response) {
-            debugger;
             if (response != null) {
             	console.log(response);
 				AmCharts.makeChart( "pie", {
@@ -113,7 +111,6 @@ $(document).ready(function () {
         method: "POST",
         data: data3,
         success: function (response) {
-            debugger;
             if (response != null) {
             	console.log(response);
 				AmCharts.makeChart( "pie2", {
@@ -129,6 +126,12 @@ $(document).ready(function () {
 				  "marginLeft": 0,
 				  "marginRight": 0,
 				  "pullOutRadius": 0,
+				  "titleField": {
+					    "gridPosition": "start",
+					    "gridAlpha": 0,
+					    "ignoreAxisWidth": true,
+					    "autoWrap": true
+					  },
 				  "balloon":{
 				   "fixedPosition":true
 				  }
