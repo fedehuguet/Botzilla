@@ -29,7 +29,7 @@
   <div id="trend" style="width: 320px; height: 200px; margin-left: 20px; margin-top:70px;"></div>
   <div id="pie2" style="width: 320px; height: 200px; margin-left:20px; margin-top:15px;"></div>
 </div>
-<div id="pie" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
+<div id="pie" style="width: 500px; height: 300px; margin-left: 50px; display: inline-block;"></div>
 
 </body>
 
@@ -97,7 +97,7 @@ $(document).ready(function () {
     "text": "Estatus final",
     "alpha": 1,
 				    "color": "#595959",
-				    "size": 20
+				    "size": 15
   }],
 				  "dataProvider": response,
           "colors": ["#FF6666"],
@@ -149,17 +149,11 @@ $(document).ready(function () {
           "backgroundColor": "#FFF",
 				  "labelsEnabled": true,
 				  "autoMargins": false,
-				  "marginTop": 20,
-				  "marginBottom": 20,
-				  "marginLeft": 20,
-				  "marginRight": 20,
+				  "marginTop": 0,
+				  "marginBottom": 0,
+				  "marginLeft": 0,
+				  "marginRight": 0,
 				  "pullOutRadius": 0,
-				  "titleAxis": {
-					    "gridPosition": "start",
-					    "gridAlpha": 0,
-					    "ignoreAxisWidth": true,
-					    "autoWrap": true
-					  },
 				  "balloon":{
 				   "fixedPosition":true
 				  }
@@ -189,7 +183,9 @@ var chartDataTrend = [ {
 	AmCharts.makeChart( "trend", {
 	  "type": "serial",
     "titles": [{
-"text": "Cantidad de problemas por mes"
+"text": "Cantidad de problemas por mes","alpha": 1,
+				    "color": "#595959",
+				    "size": 15
 }],
 	  "dataProvider": chartDataTrend,
 	  "categoryField": "month",
