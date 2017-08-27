@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="engine1/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="UTF-8">
-<title>Title of the document</title>
+<title>Botzilla</title>
 </head>
 
 <body>
-Content of the document......
+Botzilla
+<label class="message"></label>
 </body>
 
 </html>
+<script>
+$(document).ready(function () {
+    $.ajax({
+        url: "http://13.58.25.89/Botzilla/BotzillaInterface.php?id=1&message=hola",
+        dataType: 'json',
+        method: "GET",
+        success: function (response) {
+            debugger;
+            if (response != null) {
+            	$('.message').html(response);
+            }
+        },
+        complete: function () {
+        }
+    });
+ });
+</script>
