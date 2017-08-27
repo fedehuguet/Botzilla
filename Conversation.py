@@ -93,7 +93,7 @@ if countConver > 0:
       cur = db.cursor()
 
       # Use all the SQL you like
-      proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Sí');"
+      proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",\'Sí\');"
       cur.execute(proce)
       db.close()
     elif ord(response['output']['text'][0][0]) == ord(str("^")):
@@ -108,7 +108,7 @@ if countConver > 0:
       cur = db.cursor()
 
       # Use all the SQL you like
-      proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No');"
+      proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",\'No\');"
       cur.execute(proce)
       db.close()
 
