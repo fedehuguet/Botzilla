@@ -20,7 +20,7 @@ switch ($function)
 	case "echoTop5" : SystemController::echoTop5();
 		  break;
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-	case "echoTop5" : SystemController::echoProblemStatus();
+	case "echoProblemStatus" : SystemController::echoProblemStatus();
 		  break;
 
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
