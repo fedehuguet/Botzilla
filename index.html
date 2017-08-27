@@ -164,13 +164,13 @@ $(document).ready(function () {
         }
     });
         var data4 = {
-		"function": "echoDeskSharing"
+		"function": "echoProblemMonth"
 	};
 	$.ajax({
         url: "http://13.58.25.89/Botzilla/Dashboard.php",
         dataType: 'json',
         method: "POST",
-        data: data3,
+        data: data4,
         success: function (response) {
             if (response != null) {
             	debugger;
@@ -182,7 +182,7 @@ $(document).ready(function () {
 				    "color": "#595959",
 				    "size": 15
 }],
-	  "dataProvider": data4,
+	  "dataProvider": response,
 	  "categoryField": "Mes",
     "backgroundAlpha": "1",
     "colors": ["#FF6666", "#FFF07C", "#80FF72", "#7EE8FA", "#EEC0C6"],
@@ -191,7 +191,7 @@ $(document).ready(function () {
 	  "graphs": [ {
   		  "valueField": "Cantidad",
 		  "type": "line",
-		  "fillAlphas": 0,
+		  "fillAlphas": 1,
 		  "bullet": "round",
 		  "lineColor": "#ff6666"
 		}]
