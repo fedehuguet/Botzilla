@@ -49,11 +49,12 @@ $(document).ready(function () {
             	console.log(response);
              	AmCharts.makeChart( "top5", {
 				   "type": "serial",
-           "titles": [{
-     "text": "Top 5 problemas",
-     "alpha": 1,
-    "color": "#2A2A2A"
-   }],
+				           "titles": [{
+				     "text": "Top 5 problemas",
+				     "alpha": 1,
+				    "color": "#595959",
+				    "size": 20
+				   }],
 				   "dataProvider": response,
 				   "categoryField": "Nombre",
            "backgroundAlpha": "1",
@@ -95,7 +96,8 @@ $(document).ready(function () {
           "titles": [{
     "text": "Estatus final",
     "alpha": 1,
-    "color": "#2A2A2A"
+				    "color": "#595959",
+				    "size": 20
   }],
 				  "dataProvider": response,
           "colors": ["#FF6666"],
@@ -135,7 +137,9 @@ $(document).ready(function () {
 				  "type": "pie",
 				  "theme": "light",
           "titles": [{
-    "text": "Atendido por teléfono"
+    "text": "Atendido por teléfono","alpha": 1,
+				    "color": "#595959",
+				    "size": 20
   }],
 				  "dataProvider": response,
 				  "titleField": "phone_sharing",
