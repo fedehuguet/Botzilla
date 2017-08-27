@@ -22,6 +22,9 @@ switch ($function)
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	case "echoProblemStatus" : SystemController::echoProblemStatus();
 		  break;
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	case "echoDeskSharing" : SystemController::echoDeskSharing();
+		  break;
 
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  	case '404': header("HTTP/1.1 404 Not Found");
@@ -51,6 +54,13 @@ class SystemController
 		$paramtypes = null;
 		$params = null;
 		echo json_encode(Tools::CallStoredProcedure("SP_GetProblemStatus",$paramtypes, $params));
+	}
+	//------------------------------------------------------------------------------------------------------------------
+	public static function echoDeskSharing()
+	{
+		$paramtypes = null;
+		$params = null;
+		echo json_encode(Tools::CallStoredProcedure("SP_ProblemasDesk",$paramtypes, $params));
 	}
 }
 
