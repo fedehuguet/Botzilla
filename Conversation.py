@@ -77,8 +77,10 @@ if countConver > 0:
     cur = db.cursor()
 
     # Use all the SQL you like
-    cur.execute("CALL SP_UpdateContext(" + sys.argv[1] + ", \'" + json.dumps(response['context']) + "\',\'" + json.dumps(response['intents'][0]['intent']) +"\' );")
+    proce = "CALL SP_UpdateContext(" + sys.argv[1] + ", \'" + json.dumps(response['context']) + "\',\'" + json.dumps(response['intents'][0]['intent']) +"\' );"
+    cur.execute(proce)
     db.close()
+    print(proce)
 
     print(json.dumps(response['output']['text'][0]))
 else:
