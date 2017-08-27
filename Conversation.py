@@ -93,7 +93,7 @@ if countConver > 0:
         cur = xb.cursor()
 
         # Use all the SQL you like
-        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Sí');"
+        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Resuelto');"
         print(proce)
         cur.execute(proce)
         xb.close()
@@ -110,7 +110,7 @@ if countConver > 0:
         cur = xb.cursor()
 
         # Use all the SQL you like
-        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No');"
+        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No resuelto');"
         print(proce)
         cur.execute(proce)
         xb.close()
