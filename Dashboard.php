@@ -25,7 +25,12 @@ switch ($function)
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	case "echoDeskSharing" : SystemController::echoDeskSharing();
 		  break;
-
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	case "echoProblemMonth" : SystemController::echoProblemMonth();
+		  break;
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	case "echoConversationMonth" : SystemController::echoConversationMonth();
+		  break;
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  	case '404': header("HTTP/1.1 404 Not Found");
 		break;
@@ -61,6 +66,20 @@ class SystemController
 		$paramtypes = null;
 		$params = null;
 		echo json_encode(Tools::CallStoredProcedure("SP_ProblemasDesk",$paramtypes, $params));
+	}
+	//------------------------------------------------------------------------------------------------------------------
+	public static function echoProblemMonth()
+	{
+		$paramtypes = null;
+		$params = null;
+		echo json_encode(Tools::CallStoredProcedure("SP_ProblemasPorMes",$paramtypes, $params));
+	}
+	//------------------------------------------------------------------------------------------------------------------
+	public static function echoConversationMonth()
+	{
+		$paramtypes = null;
+		$params = null;
+		echo json_encode(Tools::CallStoredProcedure("SP_ConversacionesPorMes",$paramtypes, $params));
 	}
 }
 
