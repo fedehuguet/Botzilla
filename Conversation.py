@@ -58,7 +58,8 @@ if countConver > 0:
             version='2017-04-21')
 
     workspace_id = '6dbc2654-4bc8-4767-9f0e-c118434dead5'
-    response = []
+    response = [] 
+    print(mcontext);
     if mcontext == "-1":
         response = conversation.message(workspace_id=workspace_id, message_input={
             'text': sys.argv[2]} )
