@@ -82,7 +82,6 @@ if countConver > 0:
     db.close()
 
     if ord(response['output']['text'][0][0]) == ord(str("~")):
-        print("1")
         xb = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",
                              # your host, usually localhost
                              user="Jolum",  # your username
@@ -94,7 +93,8 @@ if countConver > 0:
         cur = xb.cursor()
 
         # Use all the SQL you like
-        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",\'Sí\');"
+        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Sí');"
+        print(proce)
         cur.execute(proce)
         xb.close()
     elif ord(response['output']['text'][0][0]) == ord(str("^")):
@@ -110,7 +110,8 @@ if countConver > 0:
         cur = xb.cursor()
 
         # Use all the SQL you like
-        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",\'No\');"
+        proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No');"
+        print(proce)
         cur.execute(proce)
         xb.close()
 
