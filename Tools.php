@@ -82,27 +82,16 @@ class Tools
 			$sql = "CALL $strProcedure();";
 			$result = mysqli_query($connection, $sql);
 			
-
-			$posts = array();
 			$rows = array();
-			while($row = mysqli_fetch_array($result, MYSQLI_NUM))
+			while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 			{
 				
 				$rows[] = $row;
 			}
-
-			foreach ($rows as $row ) {
-				foreach ($row as $colum ) {
-
-					
-					array_push($posts, $colum);
-				}
-			}
 			
-			$mod = mysqli_affected_rows($connection);
 			@mysqli_close($connection);
 			
-			return $posts;
+			return $rows;
 		}
 	}
 	
