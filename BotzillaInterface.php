@@ -1,4 +1,5 @@
 <?php
+include "Tools.php";
 header('Content-Type: text/html; charset=utf-8');
 header('Access-Control-Allow-Methods: PUT, POST, DELETE, OPTIONS');
 header("Content-Type: application/json", true);
@@ -7,6 +8,10 @@ if (isset($_GET['start']) && isset($_GET['chat_id']))
 {
     if ($_GET['start'] == 1)
     {
+        $paramtypes = 's';
+		$params = array();
+        array_push($params, $_GET['start'] ." ". $_GET['chat_id'] );
+		echo json_encode(Tools::CallStoredProcedure("SP_AddLog",$paramtypes, $params));
         echo shell_exec("python /var/www/html/Botzilla/StartConversation.py ". $_GET['chat_id'] );
     }
     else {
@@ -17,6 +22,10 @@ else
 {
     if (isset($_GET['id']) &&  isset($_GET['message']) )
     {
+        $paramtypes = 's';
+		$params = array();
+        array_push($params, $_GET['id']." ". $_GET['message'] );
+		echo json_encode(Tools::CallStoredProcedure("SP_AddLog",$paramtypes, $params));
         $id = $_GET["id"];
         $message = $_GET["message"];
         $output =  shell_exec('python /var/www/html/Botzilla/Conversation.py '.$id.' '.$message);
