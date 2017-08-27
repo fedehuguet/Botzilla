@@ -87,7 +87,6 @@ if countConver > 0:
                              user="Jolum",  # your username
                              passwd="FilantropiaDB1234",  # your password
                              db="Botzilla")  # name of the data base
-        response['output']['text'][0] = str(response['output']['text'][0])[1:]
         # you must create a Cursor object. It will let
         #  you execute all the queries you need
         cur = xb.cursor()
@@ -96,7 +95,7 @@ if countConver > 0:
         proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Resuelto');"
         cur.execute(proce)
         xb.close()
-        strRes = str(response['output']['text'][0])
+        strRes = (response['output']['text'][0]).encode('utf-8')
         print(strRes[1:])
     elif ord(response['output']['text'][0][0]) == ord(str("^")):
         xb = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",
@@ -108,7 +107,7 @@ if countConver > 0:
         # you must create a Cursor object. It will let
         #  you execute all the queries you need
         cur = xb.cursor()
-        strRes = str(response['output']['text'][0])
+        strRes = (response['output']['text'][0]).encode('utf-8')
         # Use all the SQL you like
         proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No resuelto');"
         cur.execute(proce)
