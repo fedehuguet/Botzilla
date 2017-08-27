@@ -156,8 +156,8 @@ var pieChartData2 = [ {
 	function resize() {
 	  var w = Math.random() * 300 + 100;
 	  var h = Math.random() * 300 + 100;
-	  document.getElementByClassName('chartdiv').style.width = w + 'px';
-	  document.getElementByClassName('chartdiv').style.height = h + 'px';
+	  $('[class=chartdiv]').style.width = w + 'px';
+	  $('[class=chartdiv]').style.height = h + 'px';
 	  chart.invalidateSize();
 	}
  });
