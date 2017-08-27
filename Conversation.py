@@ -83,34 +83,34 @@ if countConver > 0:
     
     if ord(response['output']['text'][0][0]) == ord(str("~")):
       print("1")
-      db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+      xb = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
                          passwd="FilantropiaDB1234",  # your password
                          db="Botzilla")        # name of the data base
 
       # you must create a Cursor object. It will let
       #  you execute all the queries you need
-      cur = db.cursor()
+      cur = xb.cursor()
 
       # Use all the SQL you like
       proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",\'Sí\');"
       cur.execute(proce)
-      db.close()
+      xb.close()
     elif ord(response['output']['text'][0][0]) == ord(str("^")):
       print( "2")
-      db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+      xb = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
                          passwd="FilantropiaDB1234",  # your password
                          db="Botzilla")        # name of the data base
 
       # you must create a Cursor object. It will let
       #  you execute all the queries you need
-      cur = db.cursor()
+      cur = xb.cursor()
 
       # Use all the SQL you like
       proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",\'No\');"
       cur.execute(proce)
-      db.close()
+      xb.close()
 
     print(json.dumps(response['output']['text'][0]))
 else:
