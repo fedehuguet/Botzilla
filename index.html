@@ -15,37 +15,53 @@
 
 </head>
 
-<body>
-<nav class="navbar navbar-default" style="background-color: #ff6666;">
+<body style="background-color: #edf0ed">
+<nav class="navbar navbar-default" style="background-color: #ff6666; position: fixed; z-index: 100; width: 100%">
   <div class="container-fluid">
     <div class="navbar-header">
         <h2 style="color:white;">Sigma Botzilla</h2>
     </div>
+    <a href="#" style="color:white;">Cerrar sesion</a>
   </div>
 </nav>
-<div id="top5" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
-<div id="pie2" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
-<div id="pie" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
-<div id="trend" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
+<div id="top5" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px; display: inline-block;"></div>
+<div id="pie2" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px;display: inline-block;"></div>
+<div id="pie" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
+<div id="trend" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
 
 </body>
 
 </html>
 <script>
 $(document).ready(function () {
-	// $.ajax({
-    //     url: "http://13.58.25.89/Botzilla/BotzillaInterface.php?id=1&message=hola",
-    //     dataType: 'json',
-    //     method: "GET",
-    //     success: function (response) {
-    //         debugger;
-    //         if (response != null) {
-    //         	$('.message').html(response);
-    //         }
-    //     },
-    //     complete: function () {
-    //     }
-    // });
+	var data = {
+		"function": "echoTop5" 
+	};
+	$.ajax({
+        url: "http://13.58.25.89/Botzilla/BotzillaInterface.php",
+        dataType: 'json',
+        method: "POST",
+        data: data,
+        success: function (response) {
+            debugger;
+            if (response != null) {
+            	console.log(response);
+    //         	AmCharts.makeChart( "top5", {
+				//   "type": "serial",
+				//   "dataProvider": chartData,
+				//   "categoryField": "problem",
+				//   "graphs": [ {
+				//     "valueField": "times",
+				//     "type": "column",
+				//     "fillAlphas": 1,
+				//     "fillColors": "#ff6666"
+				//   } ]
+				// });
+            }
+        },
+        complete: function () {
+        }
+    });
 	var chartData = [ {
     "problem": "Password",
     "times": 500
@@ -98,7 +114,7 @@ var chartDataTrend = [ {
 		  "type": "line",
 		  "fillAlphas": 0, 
 		  "bullet": "round",
-		  "lineColor": "#000"
+		  "lineColor": "#ff6666"
 		}]
 	});
 
