@@ -21,13 +21,13 @@
     <div class="navbar-header">
         <h2 style="color:white;">Sigma Botzilla</h2>
     </div>
-    <a href="#" style="color:white;">Cerrar sesion</a>
+    <a href="#" style="color:white;">Cerrar sesión</a>
   </div>
 </nav>
-<div id="top5" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px; display: inline-block;"></div>
-<div id="pie2" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px;display: inline-block;"></div>
-<div id="pie" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
-<div id="trend" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
+<div class="chartdiv" id="top5" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px; display: inline-block;"></div>
+<div class="chartdiv" id="pie2" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px;display: inline-block;"></div>
+<div class="chartdiv" id="pie" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
+<div class="chartdiv" id="top5" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
 
 </body>
 
@@ -56,7 +56,7 @@ $(document).ready(function () {
 					    "ignoreAxisWidth": true,
 					    "autoWrap": true
 					  },
-					"marginBottom":100,
+					"marginBottom":80,
 				   "graphs": [ {
 				     "valueField": "Cantidad",
 				     "type": "column",
@@ -87,6 +87,13 @@ $(document).ready(function () {
 				  "dataProvider": response,
 				  "titleField": "status",
 				  "valueField": "Cantidad",
+				  "labelsEnabled": true,
+				  "autoMargins": false,
+				  "marginTop": 0,
+				  "marginBottom": 0,
+				  "marginLeft": 0,
+				  "marginRight": 0,
+				  "pullOutRadius": 0,
 				  "balloon":{
 				   "fixedPosition":true
 				  }
@@ -146,5 +153,12 @@ var pieChartData2 = [ {
 	   "fixedPosition":true
 	  }
 	});
+	function resize() {
+	  var w = Math.random() * 300 + 100;
+	  var h = Math.random() * 300 + 100;
+	  document.getElementByClassName('chartdiv').style.width = w + 'px';
+	  document.getElementByClassName('chartdiv').style.height = h + 'px';
+	  chart.invalidateSize();
+	}
  });
 </script>
