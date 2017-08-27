@@ -46,49 +46,57 @@ $(document).ready(function () {
             debugger;
             if (response != null) {
             	console.log(response);
-    //         	AmCharts.makeChart( "top5", {
-				//   "type": "serial",
-				//   "dataProvider": chartData,
-				//   "categoryField": "problem",
-				//   "graphs": [ {
-				//     "valueField": "times",
-				//     "type": "column",
-				//     "fillAlphas": 1,
-				//     "fillColors": "#ff6666"
-				//   } ]
-				// });
+            	var chart = AmCharts.makeChart( "top5", {
+				  "type": "serial",
+				  "dataProvider": response,
+				  "categoryField": "problem",
+				  "categoryAxis": {
+				    "gridPosition": "start",
+				    "gridAlpha": 0,
+				    "ignoreAxisWidth": true,
+				    "autoWrap": true
+				  },
+				  "marginBottom":100,
+				  "graphs": [ {
+				    "valueField": "times",
+				    "type": "column",
+				    "fillAlphas": 1,
+				    "fillColors": "#ff6666"
+				  } ]
+				});
             }
         },
         complete: function () {
         }
     });
-	var chartData = [ {
-    "problem": "Password",
-    "times": 500
-  }, {
-    "problem": "Llorar",
-    "times": 600
-  }, {
-    "problem": "Otro",
-    "times": 200
-  }, {
-    "problem": "No se que",
-    "times": 800
-  }, {
-    "problem": "Adan",
-    "times": 340
-  }];
-    AmCharts.makeChart( "top5", {
-	  "type": "serial",
-	  "dataProvider": chartData,
-	  "categoryField": "problem",
-	  "graphs": [ {
-	    "valueField": "times",
-	    "type": "column",
-	    "fillAlphas": 1,
-	    "fillColors": "#ff6666"
-	  } ]
-	});
+    var data2 = {
+		"function": "echoProblemStatus" 
+	};
+	$.ajax({
+        url: "http://13.58.25.89/Botzilla/Dashboard.php",
+        dataType: 'json',
+        method: "POST",
+        data: data2,
+        success: function (response) {
+            debugger;
+            if (response != null) {
+            	console.log(response);
+            	AmCharts.makeChart( "pie", {
+				  "type": "pie",
+				  "theme": "light",
+				  "dataProvider": response,
+				  "titleField": "status",
+				  "valueField": "cantidad",
+				  "balloon":{
+				   "fixedPosition":true
+				  }
+				});
+            }
+        },
+        complete: function () {
+        }
+    });
+
 var chartDataTrend = [ {
     "month": "January",
     "times": 100
@@ -128,16 +136,6 @@ var pieChartData = [ {
     "problem": "May",
     "times": 130
   }];
-	AmCharts.makeChart( "pie", {
-	  "type": "pie",
-	  "theme": "light",
-	  "dataProvider": pieChartData,
-	  "titleField": "problem",
-	  "valueField": "times",
-	  "balloon":{
-	   "fixedPosition":true
-	  }
-	});
 
 var pieChartData2 = [ {
     "problem": "Solved",
