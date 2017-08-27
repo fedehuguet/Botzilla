@@ -19,6 +19,9 @@ switch ($function)
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 	case "echoTop5" : SystemController::echoTop5();
 		  break;
+	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+	case "echoTop5" : SystemController::echoProblemStatus();
+		  break;
 
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  	case '404': header("HTTP/1.1 404 Not Found");
@@ -40,6 +43,14 @@ class SystemController
 		$paramtypes = null;
 		$params = null;
 		echo json_encode(Tools::CallStoredProcedure("SP_GetTop5",$paramtypes, $params));
+	}
+	
+	//------------------------------------------------------------------------------------------------------------------
+	public static function echoProblemStatus()
+	{
+		$paramtypes = null;
+		$params = null;
+		echo json_encode(Tools::CallStoredProcedure("SP_GetProblemStatus",$paramtypes, $params));
 	}
 }
 
