@@ -80,6 +80,9 @@ $(document).ready(function () {
   }];
     AmCharts.makeChart( "top5", {
 	  "type": "serial",
+    "titles": [{
+    "text": "My Chart Title"
+    }],
 	  "dataProvider": chartData,
 	  "categoryField": "problem",
 	  "graphs": [ {
