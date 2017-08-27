@@ -50,7 +50,9 @@ $(document).ready(function () {
              	AmCharts.makeChart( "top5", {
 				   "type": "serial",
            "titles": [{
-     "text": "Top 5 problemas"
+     "text": "Top 5 problemas",
+     "alpha": 1,
+    "color": "#2A2A2A"
    }],
 				   "dataProvider": response,
 				   "categoryField": "Nombre",
@@ -91,7 +93,9 @@ $(document).ready(function () {
 				  "type": "pie",
 				  "theme": "light",
           "titles": [{
-    "text": "Estatus final"
+    "text": "Estatus final",
+    "alpha": 1,
+    "color": "#2A2A2A"
   }],
 				  "dataProvider": response,
           "colors": ["#FF6666"],
