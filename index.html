@@ -104,6 +104,41 @@ $(document).ready(function () {
         }
     });
 
+    var data3 = {
+		"function": "echoDeskSharing" 
+	};
+	$.ajax({
+        url: "http://13.58.25.89/Botzilla/Dashboard.php",
+        dataType: 'json',
+        method: "POST",
+        data: data3,
+        success: function (response) {
+            debugger;
+            if (response != null) {
+            	console.log(response);
+				AmCharts.makeChart( "pie2", {
+				  "type": "pie",
+				  "theme": "light",
+				  "dataProvider": response,
+				  "titleField": "phone_sharing",
+				  "valueField": "Cantidad",
+				  "labelsEnabled": true,
+				  "autoMargins": false,
+				  "marginTop": 0,
+				  "marginBottom": 0,
+				  "marginLeft": 0,
+				  "marginRight": 0,
+				  "pullOutRadius": 0,
+				  "balloon":{
+				   "fixedPosition":true
+				  }
+				});
+            }
+        },
+        complete: function () {
+        }
+    });
+
 var chartDataTrend = [ {
     "month": "January",
     "times": 100
@@ -131,27 +166,6 @@ var chartDataTrend = [ {
 		  "bullet": "round",
 		  "lineColor": "#ff6666"
 		}]
-	});
-
-var pieChartData2 = [ {
-    "problem": "Solved",
-    "times": 600
-  }, {
-    "problem": "February",
-    "times": 150
-  }, {
-    "problem": "May",
-    "times": 130
-  }];
-	AmCharts.makeChart( "pie2", {
-	  "type": "pie",
-	  "theme": "light",
-	  "dataProvider": pieChartData2,
-	  "titleField": "problem",
-	  "valueField": "times",
-	  "balloon":{
-	   "fixedPosition":true
-	  }
 	});
  });
 </script>
