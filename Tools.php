@@ -38,7 +38,7 @@ class Tools
 				$a_params[] = &$params[$i];
 			}
 
-		
+			$mysqli->set_charset("utf8");
 			/* Prepare statement */
 			$stmt = $mysqli->prepare($sql);
 			if($stmt === false) {
