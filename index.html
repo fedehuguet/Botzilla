@@ -50,6 +50,13 @@ $(document).ready(function () {
 				   "type": "serial",
 				   "dataProvider": response,
 				   "categoryField": "Nombre",
+				   "categoryAxis": {
+					    "gridPosition": "start",
+					    "gridAlpha": 0,
+					    "ignoreAxisWidth": true,
+					    "autoWrap": true
+					  },
+					"marginBottom":100,
 				   "graphs": [ {
 				     "valueField": "Cantidad",
 				     "type": "column",
