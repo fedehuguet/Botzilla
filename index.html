@@ -2,30 +2,146 @@
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">    
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/pie.js"></script>
+
 <title>Botzilla</title>
+
 </head>
 
 <body>
-Botzilla
-<label class="message"></label>
+<nav class="navbar navbar-default" style="background-color: #ff6666;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <h2 style="color:white;">Sigma Botzilla</h2>
+    </div>
+  </div>
+</nav>
+<div id="top5" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
+<div id="pie2" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
+<div id="pie" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
+<div id="trend" style="width: 480px; height: 300px; margin:30px; display: inline-block;"></div>
+
 </body>
 
 </html>
 <script>
 $(document).ready(function () {
-    $.ajax({
-        url: "http://13.58.25.89/Botzilla/BotzillaInterface.php?id=1&message=hola",
-        dataType: 'json',
-        method: "GET",
-        success: function (response) {
-            debugger;
-            if (response != null) {
-            	$('.message').html(response);
-            }
-        },
-        complete: function () {
-        }
-    });
+	// $.ajax({
+    //     url: "http://13.58.25.89/Botzilla/BotzillaInterface.php?id=1&message=hola",
+    //     dataType: 'json',
+    //     method: "GET",
+    //     success: function (response) {
+    //         debugger;
+    //         if (response != null) {
+    //         	$('.message').html(response);
+    //         }
+    //     },
+    //     complete: function () {
+    //     }
+    // });
+	var chartData = [ {
+    "problem": "Password",
+    "times": 500
+  }, {
+    "problem": "Llorar",
+    "times": 600
+  }, {
+    "problem": "Otro",
+    "times": 200
+  }, {
+    "problem": "No se que",
+    "times": 800
+  }, {
+    "problem": "Adan",
+    "times": 340
+  }];
+    AmCharts.makeChart( "top5", {
+	  "type": "serial",
+	  "dataProvider": chartData,
+	  "categoryField": "problem",
+	  "graphs": [ {
+	    "valueField": "times",
+	    "type": "column",
+	    "fillAlphas": 1,
+	    "fillColors": "#ff6666"
+	  } ]
+	});
+var chartDataTrend = [ {
+    "month": "January",
+    "times": 100
+  }, {
+    "month": "February",
+    "times": 150
+  }, {
+    "month": "May",
+    "times": 130
+  }, {
+    "month": "June",
+    "times": 180
+  }, {
+    "month": "July",
+    "times": 110
+  }];
+	AmCharts.makeChart( "trend", {
+	  "type": "serial",
+	  "dataProvider": chartDataTrend,
+	  "categoryField": "month",
+	  "graphs": [ {
+  		  "valueField": "times",
+		  "type": "line",
+		  "fillAlphas": 0, 
+		  "bullet": "round",
+		  "lineColor": "#000"
+		}]
+	});
+
+var pieChartData = [ {
+    "problem": "Solved",
+    "times": 600
+  }, {
+    "problem": "February",
+    "times": 150
+  }, {
+    "problem": "May",
+    "times": 130
+  }];
+	AmCharts.makeChart( "pie", {
+	  "type": "pie",
+	  "theme": "light",
+	  "dataProvider": pieChartData,
+	  "titleField": "problem",
+	  "valueField": "times",
+	  "balloon":{
+	   "fixedPosition":true
+	  }
+	});
+
+var pieChartData2 = [ {
+    "problem": "Solved",
+    "times": 600
+  }, {
+    "problem": "February",
+    "times": 150
+  }, {
+    "problem": "May",
+    "times": 130
+  }];
+	AmCharts.makeChart( "pie2", {
+	  "type": "pie",
+	  "theme": "light",
+	  "dataProvider": pieChartData2,
+	  "titleField": "problem",
+	  "valueField": "times",
+	  "balloon":{
+	   "fixedPosition":true
+	  }
+	});
  });
 </script>
