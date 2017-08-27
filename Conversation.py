@@ -80,6 +80,35 @@ if countConver > 0:
     cur.execute(proce)
     db.close()
     
+    
+    if json.dumps(response['output']['text'][0]) == 'Lo siento, espero poderle ayudar en un futuro.':
+      b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+                         user="Jolum",         # your username
+                         passwd="FilantropiaDB1234",  # your password
+                         db="Botzilla")        # name of the data base
+
+      # you must create a Cursor object. It will let
+      #  you execute all the queries you need
+      cur = db.cursor()
+
+      # Use all the SQL you like
+      proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Sí');"
+      cur.execute(proce)
+      db.close()
+    elif:
+      b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+                         user="Jolum",         # your username
+                         passwd="FilantropiaDB1234",  # your password
+                         db="Botzilla")        # name of the data base
+
+      # you must create a Cursor object. It will let
+      #  you execute all the queries you need
+      cur = db.cursor()
+
+      # Use all the SQL you like
+      proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No');"
+      cur.execute(proce)
+      db.close()
 
     print(json.dumps(response['output']['text'][0]))
 else:
