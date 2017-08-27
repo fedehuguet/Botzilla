@@ -32,7 +32,7 @@ else
         array_push($params,"id=[". $_GET['id'] ."] message=[". $_GET['message'] ."] ex=[". $ex. "]" );
 	Tools::CallStoredProcedure("SP_AddLog",$paramtypes, $params);
         $output =  shell_exec($ex);
-        echo $output . $ex;
+        echo $output;
     }
     else
     {
