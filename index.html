@@ -163,43 +163,43 @@ $(document).ready(function () {
         complete: function () {
         }
     });
-
-var chartDataTrend = [ {
-    "month": "January",
-    "times": 100
-  }, {
-    "month": "February",
-    "times": 150
-  }, {
-    "month": "May",
-    "times": 130
-  }, {
-    "month": "June",
-    "times": 180
-  }, {
-    "month": "July",
-    "times": 110
-  }];
-	AmCharts.makeChart( "trend", {
+        var data4 = {
+		"function": "echoDeskSharing"
+	};
+	$.ajax({
+        url: "http://13.58.25.89/Botzilla/Dashboard.php",
+        dataType: 'json',
+        method: "POST",
+        data: data3,
+        success: function (response) {
+            if (response != null) {
+            	debugger;
+            	console.log(response);
+					AmCharts.makeChart( "trend", {
 	  "type": "serial",
     "titles": [{
 "text": "Cantidad de problemas por mes","alpha": 1,
 				    "color": "#595959",
 				    "size": 15
 }],
-	  "dataProvider": chartDataTrend,
-	  "categoryField": "month",
+	  "dataProvider": data4,
+	  "categoryField": "Mes",
     "backgroundAlpha": "1",
     "colors": ["#FF6666", "#FFF07C", "#80FF72", "#7EE8FA", "#EEC0C6"],
     "backgroundAlpha": "1",
     "backgroundColor": "#FFF",
 	  "graphs": [ {
-  		  "valueField": "times",
+  		  "valueField": "Cantidad",
 		  "type": "line",
 		  "fillAlphas": 0,
 		  "bullet": "round",
 		  "lineColor": "#ff6666"
 		}]
 	});
- });
+            }
+        },
+        complete: function () {
+        }
+         });
+    });
 </script>
