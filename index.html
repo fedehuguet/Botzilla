@@ -45,7 +45,6 @@ $(document).ready(function () {
         data: data,
         success: function (response) {
             if (response != null) {
-            	console.log(response);
              	AmCharts.makeChart( "top5", {
 				   "type": "serial",
 				           "titles": [{
@@ -88,7 +87,6 @@ $(document).ready(function () {
         data: data2,
         success: function (response) {
             if (response != null) {
-            	console.log(response);
 				AmCharts.makeChart( "pie", {
 				  "type": "pie",
 				  "theme": "light",
@@ -107,9 +105,9 @@ $(document).ready(function () {
 				  "labelsEnabled": true,
 				  "autoMargins": false,
 				  "marginTop": 0,
-				  "marginBottom": 20,
+				  "marginBottom": 0,
 				  "marginLeft": 0,
-				  "marginRight": 0,
+				  "marginRight": 15,
 				  "pullOutRadius": 0,
 				  "balloon":{
 				   "fixedPosition":true
@@ -131,7 +129,6 @@ $(document).ready(function () {
         data: data3,
         success: function (response) {
             if (response != null) {
-            	console.log(response);
 				AmCharts.makeChart( "pie2", {
 				  "type": "pie",
 				  "theme": "light",
@@ -172,7 +169,6 @@ $(document).ready(function () {
         data: data4,
         success: function (response) {
             if (response != null) {
-            	console.log(response);
 					AmCharts.makeChart( "trend", {
 	  "type": "serial",
     "titles": [{
