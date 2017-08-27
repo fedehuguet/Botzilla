@@ -79,6 +79,6 @@ if countConver > 0:
     cur.execute("CALL SP_UpdateContext(" + sys.argv[1] + ", \'" + json.dumps(response['context']) + "\');")
     db.close()
 
-    print((json.dumps(response['output']['text'][0])).replace("~", "\n"))
+    print(json.dumps(response['output']['text'][0]))
 else:
     print("error")
