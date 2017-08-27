@@ -96,6 +96,8 @@ if countConver > 0:
         proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Resuelto');"
         cur.execute(proce)
         xb.close()
+        strRes = str(response['output']['text'][0])
+        print(strRes[1:])
     elif ord(response['output']['text'][0][0]) == ord(str("^")):
         xb = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",
                              # your host, usually localhost
@@ -106,12 +108,13 @@ if countConver > 0:
         # you must create a Cursor object. It will let
         #  you execute all the queries you need
         cur = xb.cursor()
-        response['output']['text'][0] = str(response['output']['text'][0])[1:]
+        strRes = str(response['output']['text'][0])
         # Use all the SQL you like
         proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No resuelto');"
         cur.execute(proce)
         xb.close()
-
-    print(json.dumps(response['output']['text'][0]))
+        print(strRes[1:])
+    else:
+        print(json.dumps(response['output']['text'][0]))
 else:
     print("error")
