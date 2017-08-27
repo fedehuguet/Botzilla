@@ -3,11 +3,11 @@ header('Content-Type: text/html; charset=utf-8');
 header('Access-Control-Allow-Methods: PUT, POST, DELETE, OPTIONS');
 header("Content-Type: application/json", true);
 
-if (isset($_POST['start']) && isset($_POST['chat_id']))
+if (isset($_GET['start']) && isset($_GET['chat_id']))
 {
-    if ($_POST['start'] == 1)
+    if ($_GET['start'] == 1)
     {
-        echo shell_exec("python /var/www/html/Botzilla/StartConversation.py ". $_POST['chat_id'] );
+        echo shell_exec("python /var/www/html/Botzilla/StartConversation.py ". $_GET['chat_id'] );
     }
     else {
         echo -1;
@@ -15,10 +15,10 @@ if (isset($_POST['start']) && isset($_POST['chat_id']))
 }
 else
 {
-    if (isset($_POST['id']) &&  isset($_POST['message']) )
+    if (isset($_GET['id']) &&  isset($_GET['message']) )
     {
-        $id = $_POST["id"];
-        $message = $_POST["message"];
+        $id = $_GET["id"];
+        $message = $_GET["message"];
         $output =  shell_exec('python /var/www/html/Botzilla/Conversation.py '.$id.' '.$message);
         echo $output;
     }
