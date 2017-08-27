@@ -81,7 +81,7 @@ if countConver > 0:
     db.close()
     
     
-    if json.dumps(response['output']['text'][0]) == 'Lo siento, espero poderle ayudar en un futuro.':
+    if json.dumps(response['output']['text'][0]) == '¡Me da gusto haberle ayudado!':
       b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
                          passwd="FilantropiaDB1234",  # your password
@@ -95,7 +95,7 @@ if countConver > 0:
       proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Sí');"
       cur.execute(proce)
       db.close()
-    elif:
+    elif json.dumps(response['output']['text'][0]) == 'Lo siento, espero poderle ayudar en un futuro.':
       b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
                          passwd="FilantropiaDB1234",  # your password
