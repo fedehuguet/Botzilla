@@ -26,7 +26,7 @@ else
         $id = $_GET["id"];
         $message = $_GET["message"];
 	    
-	$ex = 'python /var/www/html/Botzilla/Conversation.py '.$id.' \"'.$message.'\"';
+	$ex = 'python /var/www/html/Botzilla/Conversation.py '.$id.' "'.$message.'"';
 	$paramtypes = 's';
 	$params = array();
         array_push($params,"id=[". $_GET['id'] ."] message=[". $_GET['message'] ."] ex=[". $ex. "]" );
