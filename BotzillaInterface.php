@@ -10,7 +10,7 @@ if (isset($_GET['start']) && isset($_GET['chat_id']))
     {
         $paramtypes = 's';
 		$params = array();
-        array_push($params, $_GET['start'] ." ". $_GET['chat_id'] );
+        array_push($params,"start=[". $_GET['start'] ."] chat_id=[". $_GET['chat_id'] ."]" );
 	Tools::CallStoredProcedure("SP_AddLog",$paramtypes, $params);
         echo shell_exec("python /var/www/html/Botzilla/StartConversation.py ". $_GET['chat_id'] );
     }
@@ -24,11 +24,11 @@ else
     {
         $paramtypes = 's';
 		$params = array();
-        array_push($params, $_GET['id']." ". $_GET['message'] );
+        array_push($params,"id=[". $_GET['id'] ."] message=[". $_GET['message'] ."]" );
 	Tools::CallStoredProcedure("SP_AddLog",$paramtypes, $params);
         $id = $_GET["id"];
         $message = $_GET["message"];
-        $output =  shell_exec('python /var/www/html/Botzilla/Conversation.py '.$id.' '.$message);
+        $output =  shell_exec('python /var/www/html/Botzilla/Conversation.py '.$id.' \"'.$message.'\"');
         echo $output;
     }
     else
