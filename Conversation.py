@@ -59,7 +59,6 @@ if countConver > 0:
 
     workspace_id = '6dbc2654-4bc8-4767-9f0e-c118434dead5'
     response = [] 
-    print(mcontext);
     if mcontext == "-1":
         response = conversation.message(workspace_id=workspace_id, message_input={
             'text': sys.argv[2]} )
@@ -80,7 +79,7 @@ if countConver > 0:
     proce = "CALL SP_UpdateContext(" + sys.argv[1] + ", \'" + json.dumps(response['context']) + "\',\'" + json.dumps(response['intents'][0]['intent']) +"\' );"
     cur.execute(proce)
     db.close()
-    print(proce)
+    
 
     print(json.dumps(response['output']['text'][0]))
 else:
