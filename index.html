@@ -46,23 +46,16 @@ $(document).ready(function () {
             debugger;
             if (response != null) {
             	console.log(response);
-            	var chart = AmCharts.makeChart( "top5", {
-				  "type": "serial",
-				  "dataProvider": response,
-				  "categoryField": "problem",
-				  "categoryAxis": {
-				    "gridPosition": "start",
-				    "gridAlpha": 0,
-				    "ignoreAxisWidth": true,
-				    "autoWrap": true
-				  },
-				  "marginBottom":100,
-				  "graphs": [ {
-				    "valueField": "times",
-				    "type": "column",
-				    "fillAlphas": 1,
-				    "fillColors": "#ff6666"
-				  } ]
+             	AmCharts.makeChart( "top5", {
+				   "type": "serial",
+				   "dataProvider": response,
+				   "categoryField": "Nombre",
+				   "graphs": [ {
+				     "valueField": "Cantidad",
+				     "type": "column",
+				     "fillAlphas": 1,
+				     "fillColors": "#ff6666"
+				} ]
 				});
             }
         },
@@ -81,12 +74,12 @@ $(document).ready(function () {
             debugger;
             if (response != null) {
             	console.log(response);
-            	AmCharts.makeChart( "pie", {
+				AmCharts.makeChart( "pie", {
 				  "type": "pie",
 				  "theme": "light",
 				  "dataProvider": response,
 				  "titleField": "status",
-				  "valueField": "cantidad",
+				  "valueField": "Cantidad",
 				  "balloon":{
 				   "fixedPosition":true
 				  }
@@ -125,17 +118,6 @@ var chartDataTrend = [ {
 		  "lineColor": "#ff6666"
 		}]
 	});
-
-var pieChartData = [ {
-    "problem": "Solved",
-    "times": 600
-  }, {
-    "problem": "February",
-    "times": 150
-  }, {
-    "problem": "May",
-    "times": 130
-  }];
 
 var pieChartData2 = [ {
     "problem": "Solved",
