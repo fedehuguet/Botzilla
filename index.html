@@ -30,6 +30,7 @@
   <div id="pie2" style="width: 320px; height: 200px; margin-left:20px; margin-top:15px;"></div>
 </div>
 <div id="pie" style="width: 550px; height: 400px; margin-left: 50px; margin-top:15px; display: inline-block;"></div>
+<div id="trend2" style="width: 550px; height: 400px; margin-left: 25px; margin-top:15px; display: inline-block;"></div>
 </body>
 
 </html>
@@ -57,7 +58,7 @@ $(document).ready(function () {
 				   "categoryField": "Nombre",
            "backgroundAlpha": "1",
            "backgroundColor": "#FFF",
-           "colors": ["#FF6666", "#FFF07C", "#80FF72", "#7EE8FA", "#EEC0C6"],
+           "colors": ["#FF6666", "#721121", "#A5402D", "#F15156", "#FB919B","#FFCF99"],
 				   "categoryAxis": {
 					    "gridPosition": "start",
 					    "gridAlpha": 0,
@@ -97,7 +98,7 @@ $(document).ready(function () {
 				    "size": 20
   }],
 				  "dataProvider": response,
-          "colors": ["#FF6666", "#FFF07C", "#80FF72", "#7EE8FA", "#EEC0C6"],
+          "colors": ["#FF6666", "#721121", "#A5402D", "#F15156", "#FB919B","#FFCF99"],
           "backgroundAlpha": "1",
           "backgroundColor": "#FFF",
 				  "titleField": "status",
@@ -140,7 +141,7 @@ $(document).ready(function () {
 				  "dataProvider": response,
 				  "titleField": "phone_sharing",
 				  "valueField": "Cantidad",
-          "colors": ["#FF6666", "#FFF07C", "#80FF72", "#7EE8FA", "#EEC0C6"],
+          "colors": ["#FF6666", "#721121", "#A5402D", "#F15156", "#FB919B","#FFCF99"],
           "backgroundAlpha": "1",
           "backgroundColor": "#FFF",
 				  "labelsEnabled": true,
@@ -179,7 +180,43 @@ $(document).ready(function () {
 	  "dataProvider": response,
 	  "categoryField": "Mes",
     "backgroundAlpha": "1",
-    "colors": ["#FF6666", "#FFF07C", "#80FF72", "#7EE8FA", "#EEC0C6"],
+    "colors": ["#FF6666", "#721121", "#A5402D", "#F15156", "#FB919B","#FFCF99"],
+    "backgroundAlpha": "1",
+    "backgroundColor": "#FFF",
+	  "graphs": [ {
+  		  "valueField": "Cantidad",
+		  "type": "line",
+		  "fillAlphas": 1,
+		  "bullet": "none",
+		  "lineColor": "#ff6666"
+		}]
+	});
+            }
+        },
+        complete: function () {
+        }
+         });
+	        var data5 = {
+		"function": "echoConversationMonth"
+	};
+	$.ajax({
+        url: "http://13.58.25.89/Botzilla/Dashboard.php",
+        dataType: 'json',
+        method: "POST",
+        data: data5,
+        success: function (response) {
+            if (response != null) {
+					AmCharts.makeChart( "trend2", {
+	  "type": "serial",
+    "titles": [{
+"text": "Cantidad de problemas por mes","alpha": 1,
+				    "color": "#595959",
+				    "size": 15
+}],
+	  "dataProvider": response,
+	  "categoryField": "Mes",
+    "backgroundAlpha": "1",
+    "colors": ["#FF6666", "#721121", "#A5402D", "#F15156", "#FB919B","#FFCF99"],
     "backgroundAlpha": "1",
     "backgroundColor": "#FFF",
 	  "graphs": [ {
