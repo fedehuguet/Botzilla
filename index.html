@@ -24,10 +24,10 @@
     <a href="#" style="color:white;">Cerrar sesión</a>
   </div>
 </nav>
-<div class="chartdiv" id="top5" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px; display: inline-block;"></div>
-<div class="chartdiv" id="pie2" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px;display: inline-block;"></div>
-<div class="chartdiv" id="pie" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
-<div class="chartdiv" id="top5" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
+<div id="top5" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px; display: inline-block;"></div>
+<div id="pie2" style="width: 480px; height: 300px; margin-left:100px; margin-top:120px;display: inline-block;"></div>
+<div id="pie" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
+<div id="top5" style="width: 480px; height: 300px; margin-left: 100px; margin-top:50px;display: inline-block;"></div>
 
 </body>
 
@@ -153,12 +153,5 @@ var pieChartData2 = [ {
 	   "fixedPosition":true
 	  }
 	});
-	function resize() {
-	  var w = Math.random() * 300 + 100;
-	  var h = Math.random() * 300 + 100;
-	  $('[class=chartdiv]').style.width = w + 'px';
-	  $('[class=chartdiv]').style.height = h + 'px';
-	  chart.invalidateSize();
-	}
  });
 </script>
