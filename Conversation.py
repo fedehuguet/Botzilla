@@ -81,7 +81,7 @@ if countConver > 0:
     cur.execute(proce)
     db.close()
     
-    echo json.dumps(response['output']['text'][0][0])
+    print( json.dumps(response['output']['text'][0][0]))
     if json.dumps(response['output']['text'][0][0]) == "~":
       b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
