@@ -87,7 +87,7 @@ if countConver > 0:
                              user="Jolum",  # your username
                              passwd="FilantropiaDB1234",  # your password
                              db="Botzilla")  # name of the data base
-        response['output']['text'][0][0] = response['output']['text'][0][0][1:]
+        response['output']['text'][0][0] = str(response['output']['text'][0][0])[1:]
         # you must create a Cursor object. It will let
         #  you execute all the queries you need
         cur = xb.cursor()
@@ -106,7 +106,7 @@ if countConver > 0:
         # you must create a Cursor object. It will let
         #  you execute all the queries you need
         cur = xb.cursor()
-        response['output']['text'][0][0] = response['output']['text'][0][0][1:]
+        response['output']['text'][0][0] = str(response['output']['text'][0][0])[1:]
         # Use all the SQL you like
         proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'No resuelto');"
         cur.execute(proce)
