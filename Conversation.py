@@ -83,7 +83,7 @@ if countConver > 0:
     
     if ord(response['output']['text'][0][0]) == ord(str("~")):
       print("1")
-      b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+      db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
                          passwd="FilantropiaDB1234",  # your password
                          db="Botzilla")        # name of the data base
@@ -98,7 +98,7 @@ if countConver > 0:
       db.close()
     elif ord(response['output']['text'][0][0]) == ord(str("^")):
       print( "2")
-      b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
+      db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
                          passwd="FilantropiaDB1234",  # your password
                          db="Botzilla")        # name of the data base
