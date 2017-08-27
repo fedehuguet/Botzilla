@@ -1,6 +1,6 @@
 #!/usr/bin/python
 import MySQLdb
-
+import sys
 db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                      user="Jolum",         # your username
                      passwd="FilantropiaDB1234",  # your password
@@ -11,7 +11,7 @@ db = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.co
 cur = db.cursor()
 
 # Use all the SQL you like
-cur.execute("Call SP_AddConversation()")
+cur.execute("Call SP_AddConversation(" + sys.argv[1] + ")")
 
 # print all the first cell of all the rows
 for row in cur.fetchall():
