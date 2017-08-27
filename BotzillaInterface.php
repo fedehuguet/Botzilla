@@ -19,7 +19,7 @@ else
     {
         $id = $_GET["id"];
         $message = $_GET["message"];
-        $output =  shell_exec('python /var/www/html/Botzilla/Conversation.py '.$id.' '.$message);
+        $output =  shell_exec('python /var/www/html/Botzilla/Conversation.py '.$id.' '.urldecode ($message));
         echo $output;
     }
     else
