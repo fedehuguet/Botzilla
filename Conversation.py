@@ -97,7 +97,6 @@ if countConver > 0:
         cur.execute(proce)
         xb.close()
     elif ord(response['output']['text'][0][0]) == ord(str("^")):
-        print("2")
         xb = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",
                              # your host, usually localhost
                              user="Jolum",  # your username
