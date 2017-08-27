@@ -81,7 +81,7 @@ if countConver > 0:
     cur.execute(proce)
     db.close()
     
-    if str(json.dumps(response['output']['text'][0][0])) == "~":
+    if str(json.dumps(response['output']['text'][0][0])) == str("~"):
       print("1")
       b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
@@ -96,7 +96,7 @@ if countConver > 0:
       proce = "CALL SP_SetSovedUnSolved(" + sys.argv[1] + ",'Sí');"
       cur.execute(proce)
       db.close()
-    elif str(json.dumps(response['output']['text'][0][0])) == "^":
+    elif str(json.dumps(response['output']['text'][0][0])) == str("^"):
       print( "2")
       b = MySQLdb.connect(host="filantropiadb.c8sdfecsnkao.us-east-2.rds.amazonaws.com",    # your host, usually localhost
                          user="Jolum",         # your username
