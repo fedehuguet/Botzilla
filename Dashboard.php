@@ -37,9 +37,9 @@ class SystemController
 	//------------------------------------------------------------------------------------------------------------------
 	public static function echoTop5()
 	{
-		$paramtypes = "";
-		$params = array();
-		echo json_encode(Tools::CallStoredProcedure("SP_GetTo5",$paramtypes, $params));
+		$paramtypes = null;
+		$params = null;
+		echo json_encode(Tools::CallStoredProcedure("SP_GetTop5",$paramtypes, $params));
 	}
 }
 
